@@ -1,4 +1,3 @@
-import json
 import re
 import requests
 from .base import BasePlugin
@@ -24,7 +23,7 @@ class GoogleSearchPlugin(BasePlugin):
         }
 
         url = 'http://ajax.googleapis.com/ajax/services/search/web'
-        response = json.loads(requests.get(url, params=params).text)
+        response = requests.get(url, params=params).json()
 
         lines = []
         for idx, result in enumerate(response['responseData']['results']):
