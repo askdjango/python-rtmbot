@@ -43,6 +43,7 @@ class RtmBot(object):
             self.last_ping = now
 
     def input(self, data):
+        print(data)
         for plugin in self.plugins:
             plugin.do(data)
 
