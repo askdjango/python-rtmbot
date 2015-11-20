@@ -1,5 +1,4 @@
 requests
-pyyaml
 websocket-client
 slackclient
 beautifulsoup4
