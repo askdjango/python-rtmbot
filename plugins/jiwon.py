@@ -12,14 +12,16 @@ class JiwonPlugin(BasePlugin):
                 try:
                     message = ' '.join(map(str, multiplication(int(matched.group(1)))))
                 except ValueError:
-                    message = '오류) 숫자로 입력해주세요.'
+                    message = '오류) 1 이상 19 이하의 숫자로 입력해주세요.'
                 self.outputs.append([data['channel'], message])
 
 
 def multiplication(x):
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-    result = []
-    for n in numbers:
-        result.append(x * n)
-    return result
+    if 1 <= x <= 19:
+        result = []
+        for n in range(1, 20):
+            result.append(x * n)
+        return result
+    else:
+        raise ValueError
 
